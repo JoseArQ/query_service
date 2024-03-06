@@ -1,0 +1,11 @@
+# Solución
+
+## Tegnologías
+
+- Python >=3.6 
+- MySql
+- Docker/Docker compose
+
+## Servicio de consultas
+
+Se plantea como solución implementar un servidor básico usando el modúlo de python http.server con el fin de cumplir con el requerimiento de no usar frameworks.
