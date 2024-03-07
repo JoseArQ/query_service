@@ -8,4 +8,51 @@
 
 ## Servicio de consultas
 
-Se plantea como solución implementar un servidor básico usando el modúlo de python http.server con el fin de cumplir con el requerimiento de no usar frameworks.
+Se plantea como solución implementar un servidor básico usando el módulo de python http.server con el fin de cumplir con el requerimiento de no usar frameworks.
+
+### Casos de uso
+
+- Filtrar propiedades por año de construcción, ciudad y estado. Se debe tener en cuenta que se pueden aplicar varios filtros a la vez y que las consultas estan limitadas a los siguientes estados “pre_venta”, “en_venta” y “vendido”. Los campos que se deben mostrar son los siguientes: Dirección, Ciudad, Estado, Precio de venta y Descripción.
+
+### Solución 
+
+Implementar servidor http usando _http.server_ que trae python por defecto extendiend la clase BaseHTTPRequestHandler y realizando una implementación para el método *do_GET* ya que lo que se requiere es realizar busquedas de las propiedades.
+
+Del atributo path que provee la clase BaseHTTPRequestHandler hay que extraer el path y los parametros de la url, para ello se decidió usar el módulo  _urllib.parse_ de python.
+
+Para manejar las rutas decidí crear una clase Router, con métodos para agregar rutas y obtener los manejadores. La idea es lograr mapear los path con funciones que van a manejar esas solicitudes es dicer los controladores, para ello se van a almacenar en un diccionario de python teniendo los path de url como keys y los controladores como value. La desventaja es que si se quieren realizar otros modulos debe usarse el mismo enrutador ¿Cómo puedo tener objeto de estado global en python?
+
+Se parte de implementar un query como la siguiente, la cual consiste en realizar dos join ya que la relación entre propiedades y estados es de muchos a muchos.
+
+`
+SELECT p.address, p.city, s.name as status, p.price, p.description 
+FROM property p 
+INNER JOIN status_history sh ON p.id = sh.property_id
+INNER JOIN status s ON sh.status_id = s.id 
+WHERE (
+p.city = "Bogota" 
+AND (p.address LIKE  "%15-90" OR p.address LIKE "15-90%")
+AND s.name NOT IN("comprado", "comprando")
+);
+`
+Se debe realizar programaticamente la cláusula *WHERE* ya que esta cambiara de acuerda a la entrada del usuario. 
+
+se propone exponer un endpoint de tipo *GET*: 
+
+`
+GET /api/properties
+`
+
+Parámteros aceptods son: 
+    - city: string. La ciudad por la que se desea filtrar.
+    - status: string. Nombre del estado por el que se desea filtrar. Valores válidos “pre_venta”, “en_venta” y“vendido”.
+    - year_gte: string. Con este parámetro se filtraran los propiedades construidad en el mismo año o posteriores.
+    - year_lte: string. Con este parámetro se filtraran los propiedades construidad en el mismo año o en años anteriores.
+
+## Solución ejercicio de los bloques de números
+
+Dividí el problema en tres:
+
+- Encontrar los bloques de numeros en un array de acuerdo las condiciones establecidas.
+- Ordenar cada uno de los bloques encontrados.
+- Formatear cada uno de los bloques de acuerdo a los criterios establecidos.
