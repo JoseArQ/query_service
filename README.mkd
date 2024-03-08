@@ -9,8 +9,9 @@
 ## Servicio de consultas
 
 ### Ejecución
-    - Clonar el repositorio
-        - ```git clone https://github.com/JoseArQ/query_service.git```    
+
+*Clonar el repositorio*
+ ```git clone https://github.com/JoseArQ/query_service.git```    
     - Acceder al folder
         - ```cd query_service```
     - Crear el archivo .env y agregar allí las variables requeridas, se puede ver un ejemplo de estas variables en el archivo .env.example
