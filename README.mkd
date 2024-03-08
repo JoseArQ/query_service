@@ -13,6 +13,7 @@
         - ```git clone https://github.com/JoseArQ/query_service.git```    
     - Acceder al folder
         - ```cd query_service```
+    - Crear el archivo .env y agregar allí las variables requeridas, se puede ver un ejemplo de estas variables en el archivo .env.example
     - Con docker-compose iniciar el contenedor
         - ```docker-compose up``` -> para crear y ejecutar contenedor
         - ```docker-compose start``` ->para iniciar contenedor
