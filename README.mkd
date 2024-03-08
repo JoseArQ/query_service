@@ -6,8 +6,6 @@
 - MySql
 - Docker/Docker compose
 
-## Servicio de consultas
-
 ### Ejecución
 
 **Clonar el repositorio**
@@ -24,15 +22,18 @@
 **Con docker-compose iniciar el contenedor**
 
 ```docker-compose up``` -> para crear y ejecutar contenedor
+
 ```docker-compose start``` ->para iniciar contenedor
+
 ```docker-compose stop``` ->para apagar contenedor
 
 **Con entorno virtual**
-Crear y levantar entorno virtual
+
+**Crear y levantar entorno virtual**
 
 ```python -m venv <venvName>```
 
-Ejecutar la aplicación
+**Ejecutar la aplicación**
 
 ```python app/main.py```
 
@@ -40,6 +41,10 @@ Ejecutar la aplicación
 **La aplicación se expone en el puerto 8000**
 
 ```http://localhost:8000/api/properties```
+
+
+## Servicio de consultas
+
 
 Se plantea como solución implementar un servidor básico usando el módulo de python http.server con el fin de cumplir con el requerimiento de no usar frameworks.
 
