@@ -91,6 +91,7 @@ Parámteros aceptods son:
     - year_lte: string. Con este parámetro se filtraran los propiedades construidad en el mismo año o en años anteriores.
 
 *Ejemplo de petición con parámetros*
+
 ```
 GET /api/properties?city=bogota&status=pre_venta&year_gte=2000
 ```
@@ -150,3 +151,11 @@ Dividí el problema en tres:
 - Formatear cada uno de los bloques de acuerdo a los criterios establecidos.
 
 Luego de la primera implementación decidí que era mejor ordenar los bloques cada vez que se encuentre uno, en lugar de encontrar todos los bloques y luego ordenar la lista de los bloques, puesto que, la tarea más pesada esta en el ordenamiento de los números ya que se puede considerar que la implementación de sorted en python tiene una complejidad de O(nlogn) por lo que la complejidad aumenta conforme aumente la cantidad de bloques siendo k la cantidad de bloques tenemos una complejidad O(k*nlogn) donde n es la cantidad de elementos en los bloques la cual no es estrictamente fija.
+
+### Ejecución de la solución bloques de números
+
+La implementación se encuntra en el [path](./app/second_exercise/sort_number_blocks.py)
+
+Para este ejercicio se implementaron test usando pytest, por lo que se pueden ejecutar como sigue: 
+
+```pytest -v app/tests/test_second_exercise/test_sorted_number_blocks.py ```
