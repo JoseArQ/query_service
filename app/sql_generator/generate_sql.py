@@ -29,11 +29,11 @@ def generate_query(
         
     
         if exclude_queries:
-            query_filters = join_filters([query_filters, exclude_queries])
+            query_filters = join_filters(filters=[query_filters, exclude_queries])
             query_parameters.extend(exclude_values)
 
     
-        full_query =  add_filter(query=query_base)
+        full_query =  add_filter(query=query_base, filter=query_filters)
 
         return full_query , query_parameters
     except Exception as e:
