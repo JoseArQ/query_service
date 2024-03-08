@@ -49,6 +49,18 @@ Parámteros aceptods son:
     - year_gte: string. Con este parámetro se filtraran los propiedades construidad en el mismo año o posteriores.
     - year_lte: string. Con este parámetro se filtraran los propiedades construidad en el mismo año o en años anteriores.
 
+## Servicio de me gusta
+
+Para este servicio se debe crear una entidad para los usuario con su información básica. La entidad de usuario se relaciona con la entidad de propiedades de la siguiente manera:
+
+- Un usuario puede dar un me gusta  a una o más propiedades.
+- Las propiedades pueden tener me gusta de uno o más usuarios.
+
+Por lo tanto la relación entre usuarios y propiedades es de muchos a muchos. Con el fin de mantener un historico de los me gusta se propone una tercera entidad usuarios propiedades historico para almacenar la fecha del me gusta y además implementar la relación muchos a muchos entre usuarios y propiedades.
+
+[![diagrana ER servicio de me gusta](./files/ERuser.png)]
+
+
 ## Solución ejercicio de los bloques de números
 
 Dividí el problema en tres:
