@@ -56,3 +56,5 @@ Dividí el problema en tres:
 - Encontrar los bloques de numeros en un array de acuerdo las condiciones establecidas.
 - Ordenar cada uno de los bloques encontrados.
 - Formatear cada uno de los bloques de acuerdo a los criterios establecidos.
+
+Luego de la primera implementación decidí que era mejor ordenar los bloques cada vez que se encuentre uno, en lugar de encontrar todos los bloques y luego ordenar la lista de los bloques, puesto que, la tarea más pesada esta en el ordenamiento de los números ya que se puede considerar que la implementación de sorted en python tiene una complejidad de O(nlogn) por lo que la complejidad aumenta conforme aumente la cantidad de bloques siendo k la cantidad de bloques tenemos una complejidad O(k*nlogn) donde n es la cantidad de elementos en los bloques la cual no es estrictamente fija.

@@ -16,9 +16,7 @@ def sort_numbers_blocks(array : List[int]):
   if array[0] == 0 or array[-1] == 0:
     return "X"
 
-  blocks = find_blocks(array=array)
-
-  blocks_ordered = sort_arrays(arrays=blocks)
+  blocks_ordered = find_blocks(array=array)
 
   result = get_output(arrays=blocks_ordered)
   
@@ -38,28 +36,34 @@ def find_blocks(array : list) -> List[list]:
     blocks = []
     for i, number in enumerate(array):
        if number == 0 and i > start:
-          blocks.append(array[start:i])
+          blocks.append(
+             sort_array(array=array[start:i])
+             )
           start = i + 1
        
        if number == 0 and i == start:
-          blocks.append(array[start:i+1])
+          blocks.append(
+             sort_array(array=array[start:i+1])
+             )
           start += 1
     
     if start < len(array):
-       blocks.append(array[start:])
+       blocks.append(
+          sort_array(array=array[start:])
+          )
     return blocks
    
-def sort_arrays(arrays : List[list]) -> List[list]:
+def sort_array(array : List[int]) -> List[int]:
    """
-    Sorts the arrays of numbers in the input list.
+    Sorts the array of numbers.
 
     Args:
-        arrays (List[List[int]]): The list of arrays to be sorted.
+        arrays (List[int]): The list of arrays to be sorted.
 
     Returns:
-        List[List[int]]: A list of arrays with sorted numbers.
+        List[int]: A list of arrays with sorted numbers.
     """
-   return [sorted(array) for array in arrays]
+   return sorted(array) 
 
 def get_output(arrays: List[list]) -> str:
     """
