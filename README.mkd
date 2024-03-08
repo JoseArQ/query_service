@@ -159,3 +159,7 @@ La implementación se encuntra en el [path](./app/second_exercise/sort_number_bl
 Para este ejercicio se implementaron test usando pytest, por lo que se pueden ejecutar como sigue: 
 
 ```pytest -v app/tests/test_second_exercise/test_sorted_number_blocks.py ```
+
+También se puede disponer de script para este ejercicio que recibe los número como argumentos como se muestra a continuación:
+
+```python app/second_exercise/sorted_blocks_script.py 1 3 2 0 7 8 1 3 0 6 7 1```
