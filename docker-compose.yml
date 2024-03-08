@@ -1,0 +1,14 @@
+version: "3.9"
+
+services:
+        
+  python-app:
+    build: .
+    container_name: query-service-app
+    command: python3 app/main.py
+    ports:
+      - 8000:8000
+    volumes:
+      - .:/query_service
+
+  
