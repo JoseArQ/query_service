@@ -58,7 +58,41 @@ Para este servicio se debe crear una entidad para los usuario con su informació
 
 Por lo tanto la relación entre usuarios y propiedades es de muchos a muchos. Con el fin de mantener un historico de los me gusta se propone una tercera entidad usuarios propiedades historico para almacenar la fecha del me gusta y además implementar la relación muchos a muchos entre usuarios y propiedades.
 
-[![diagrana ER servicio de me gusta](./files/ERuser.png)]
+![diagrana ER servicio de me gusta](./files/ERuser.png)
+
+se propone el atributo like como entero para a través una consulta sumar todos los like que tiene una propiedad. Esto implica que se debe restringir el valor del campo like a 1, esto se puede realizar a nivel de desarrollo implementando las respectivas validaciones o directamente en la base de datos, para este caso se asume que sera responsabilidad del desarrollador implementar las restricciones y validaciones del campo like. 
+
+### Crear tabla para usuarios
+
+`CREATE TABLE user (
+    id INTEGER PRIMARY KEY,
+    first_name VARCHAR(255),
+    last_name VARCHAR(255),
+    email VARCHAR(255),
+    is_active BOOLEAN,
+    is_confirmed BOOLEAN
+);
+`
+### Crear tabla historico de me gusta
+
+`CREATE TABLE user_property_like_history (
+    id INTEGER PRIMARY KEY,
+    user_id INTEGER,
+    property_id INTEGER,
+    like INTEGER,
+    updated_at DATETIME,
+    FOREIGN KEY (user_id) REFERENCES user(id),
+    FOREIGN KEY (property_id) REFERENCES property(id)
+);
+`
+
+### Encontrar la cantidad de me gusta por propiedad
+
+`SELECT p.id, p.address, p.city, p.price, p.description, p.year, COALESCE(SUM(uplh.like), 0) AS total_likes
+FROM property p
+LEFT JOIN user_property_like_history uplh ON p.id = uplh.property_id
+GROUP BY p.id, p.address, p.city, p.price, p.description, p.year;
+`
 
 
 ## Solución ejercicio de los bloques de números
