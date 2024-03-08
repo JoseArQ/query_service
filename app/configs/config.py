@@ -11,3 +11,6 @@ DB_CONFIG = {
     "password": os.getenv("DB_PASSWORD", None),
     "database": os.getenv("DB_NAME", None)
 }
+
+SERVER_PORT = eval(os.getenv("SERVER_PORT", "8000"))
+SERVER_HOST = os.getenv("SERVER_HOST", "")
