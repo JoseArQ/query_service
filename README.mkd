@@ -10,23 +10,36 @@
 
 ### Ejecución
 
-*Clonar el repositorio*
- ```git clone https://github.com/JoseArQ/query_service.git```    
-    - Acceder al folder
-        - ```cd query_service```
-    - Crear el archivo .env y agregar allí las variables requeridas, se puede ver un ejemplo de estas variables en el archivo .env.example
-    - Con docker-compose iniciar el contenedor
-        - ```docker-compose up``` -> para crear y ejecutar contenedor
-        - ```docker-compose start``` ->para iniciar contenedor
-        - ```docker-compose stop``` ->para apagar contenedor
-    - Con entorno virtual:
-        - Crear y levantar entorno virtual
-            - ```python -m venv <venvName>```
-        - Ejecutar la aplicación
-            - ```python app/main.py```
+**Clonar el repositorio**
+```git clone https://github.com/JoseArQ/query_service.git```    
 
-    - La aplicación se expone en el puerto 8000
-        - ```http://localhost:8000/api/properties```
+**Acceder al folder**
+
+```cd query_service```
+
+**Crear el archivo**
+
+.env y agregar allí las variables requeridas, se puede ver un ejemplo de estas variables en el archivo .env.example
+
+**Con docker-compose iniciar el contenedor**
+
+```docker-compose up``` -> para crear y ejecutar contenedor
+```docker-compose start``` ->para iniciar contenedor
+```docker-compose stop``` ->para apagar contenedor
+
+**Con entorno virtual**
+Crear y levantar entorno virtual
+
+```python -m venv <venvName>```
+
+Ejecutar la aplicación
+
+```python app/main.py```
+
+
+**La aplicación se expone en el puerto 8000**
+
+```http://localhost:8000/api/properties```
 
 Se plantea como solución implementar un servidor básico usando el módulo de python http.server con el fin de cumplir con el requerimiento de no usar frameworks.
 
