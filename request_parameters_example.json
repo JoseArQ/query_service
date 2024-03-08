@@ -1,0 +1,6 @@
+{
+    "city": "bogota",
+    "status": "pre_venta",
+    "year_gte": 2000,
+    "year_lte": 2024
+}
