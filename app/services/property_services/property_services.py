@@ -13,7 +13,7 @@ from .property_sql_constants import (
     )
 
 
-def get_property(query_params : dict):
+def get_properties(query_params : dict):
     
     query, parameters = generate_query(
         query_base=PROPERTY_JOIN_QUERY,
